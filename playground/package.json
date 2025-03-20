@@ -1,6 +1,6 @@
 {
   "private": true,
-  "name": "noti-nuxt-playground",
+  "name": "nuxt-toasts-playground",
   "type": "module",
   "scripts": {
     "dev": "nuxi dev",
@@ -8,6 +8,26 @@
     "generate": "nuxi generate"
   },
   "dependencies": {
-    "nuxt": "^3.16.1"
+    "@pinia/nuxt": "^0.10.1",
+    "nuxt": "^3.16.1",
+    "pinia": "^3.0.1",
+    "vuetify": "^3.7.18",
+    "vuetify-nuxt-module": "^0.16.1"
+  },
+  "devDependencies": {
+    "@nuxt/eslint": "^1.2.0",
+    "@stylistic/eslint-plugin": "^3.1.0",
+    "@stylistic/eslint-plugin-js": "^3.1.0",
+    "@stylistic/eslint-plugin-ts": "^4.2.0",
+    "eslint": "^9.22.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-prettier": "^5.2.3",
+    "eslint-plugin-prettier-vue": "^5.0.0",
+    "eslint-plugin-sort-keys-fix": "^1.1.2",
+    "eslint-plugin-vue": "^9.33.0",
+    "globals": "^16.0.0",
+    "prettier": "^3.2.5",
+    "prettier-vue": "^1.1.2",
+    "typescript-eslint": "^8.26.1"
   }
 }
