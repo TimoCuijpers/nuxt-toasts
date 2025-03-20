@@ -1,0 +1,7 @@
+import NotiNuxt from '../../../src/module'
+
+export default defineNuxtConfig({
+  modules: [
+    NotiNuxt,
+  ],
+})
