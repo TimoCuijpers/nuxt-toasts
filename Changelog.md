@@ -2,6 +2,31 @@
 
 All notable changes to this project will be documented in this file.
 
+
+---
+
+
+## [0.1.1] - 2025-03-24
+
+### Added
+
+- Extra test function in the playground
+
+
+### Changed
+
+- Readme file
+- Notification callback
+
+
+### Removed
+
+- Console log at the injection of the notification
+
+
+---
+
+
 ## [0.1.0] - 2025-03-24
 
 ### Added
@@ -20,4 +45,5 @@ All notable changes to this project will be documented in this file.
 [//]: # (-)
 
 
+[0.1.1]: https://github.com/TimoCuijpers/nuxt-toasts/releases/tag/0.1.1
 [0.1.0]: https://github.com/TimoCuijpers/nuxt-toasts/releases/tag/0.1.0

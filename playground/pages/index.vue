@@ -15,6 +15,24 @@ const notificationProps = ref<Notification>({
 const notify = () => {
   notificationStore.add(notificationProps.value)
 }
+
+const Download = (notification) => {
+  // Perform download
+  alert('Downloaded your file');
+
+  // Remove notification
+  notificationStore.remove(notification.id);
+}
+
+const downloadFile = async () => {
+  const notification = await notificationStore.add({
+    type: 'info',
+    title: 'Download ready',
+    text: 'Your file is ready to be downloaded. Click here to download.',
+    interval: 30000,
+    callback: () => Download(notification)
+  });
+};
 </script>
 
 <template>
@@ -24,16 +42,18 @@ const notify = () => {
     <h1>Playground</h1>
   </v-card-title>
 
-  <v-card-text>
+  <v-card-text class="d-flex flex-column">
     <v-select :items="[ 'info', 'success', 'error', 'warning' ]" v-model="notificationProps.type" label="Type" />
     <v-text-field v-model="notificationProps.title" label="Title" />
     <v-text-field v-model="notificationProps.text" label="Text" />
     <v-text-field v-model="notificationProps.interval" label="Interval" />
 <!--    <v-textarea v-model="notificationProps.callback" label="Callback" />-->
-    <v-btn color="blue" text="show notification" @click="notify()" />
+    <v-btn color="blue" text="show notification" @click="notify()" class="mb-4" />
+
+    <v-btn color="purple" text="Download (example)" @click="downloadFile()" />
   </v-card-text>
 
-  <v-card-actions>
+  <v-card-actions class="justify-center">
 
     <v-btn color="blue" text="show info" @click="(notificationProps.type = 'info') && notify()" />
 

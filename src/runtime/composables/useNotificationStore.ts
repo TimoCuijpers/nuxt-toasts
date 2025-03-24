@@ -8,7 +8,7 @@ interface Notification {
   text?: string
   type: 'success' | 'warning' | 'info' | 'error'
   interval: number
-  response?: any
+  callback?: Funcion
 }
 
 const pinia = createPinia()
@@ -21,7 +21,7 @@ export const useNotificationStore = defineStore('notification', () => {
     title: string,
     text: string = '',
     interval: number = 3000,
-    response: any = null
+    callback: any = null
   ) => {
     const notification: Notification = {
       id: _.uniqueId(),
@@ -29,7 +29,7 @@ export const useNotificationStore = defineStore('notification', () => {
       text,
       type,
       interval,
-      response,
+      callback,
     }
 
     // Beschikbare types: success, warning, info en error
@@ -38,6 +38,8 @@ export const useNotificationStore = defineStore('notification', () => {
     setTimeout(() => {
       remove(notification.id)
     }, interval)
+
+    return notification
   }
 
   /**
@@ -67,10 +69,10 @@ export const useNotificationStore = defineStore('notification', () => {
       title = '',
       text = '',
       interval = 3000,
-      response = null,
+      callback = null,
     } = notification
 
-    addNotification(type, title, text, interval, response)
+    return addNotification(type, title, text, interval, callback)
   }
 
   /**
