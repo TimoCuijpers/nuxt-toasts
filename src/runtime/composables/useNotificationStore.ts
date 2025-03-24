@@ -1,21 +1,44 @@
 import { createPinia, defineStore } from 'pinia'
-import lodash from 'lodash'
+import _ from 'lodash'
 import { ref } from 'vue'
-import type Notification from '../../types/noti-nuxt'
+
+interface Notification {
+  id: string
+  title: string
+  text?: string
+  type: 'success' | 'warning' | 'info' | 'error'
+  interval: number
+  response?: any
+}
 
 const pinia = createPinia()
 
 export const useNotificationStore = defineStore('notification', () => {
-  // interface Notification {
-  //   id: number | null
-  //   type: string
-  //   title: string
-  //   text: string | null | undefined
-  //   interval: number
-  //   callback(): () => unknown | null
-  // }
-
   const notifications = ref<Notification[]>([])
+
+  const addNotification = (
+    type: 'success' | 'warning' | 'info' | 'error',
+    title: string,
+    text: string = '',
+    interval: number = 3000,
+    response: any = null
+  ) => {
+    const notification: Notification = {
+      id: _.uniqueId(),
+      title,
+      text,
+      type,
+      interval,
+      response,
+    }
+
+    // Beschikbare types: success, warning, info en error
+    notifications.value.push(notification)
+
+    setTimeout(() => {
+      remove(notification.id)
+    }, interval)
+  }
 
   /**
    * Adds a notification.
@@ -38,18 +61,22 @@ export const useNotificationStore = defineStore('notification', () => {
    * const params = { type: 'success', title: 'Great!', text: 'Everything is fine.', interval: 2000 };
    * add(params);
    */
-  const add = (notification: Notification) => {
-    notifications.value.push(notification)
+  const add = async (notification: Partial<Omit<Notification, 'id'>> = {}) => {
+    const {
+      type = 'info',
+      title = '',
+      text = '',
+      interval = 3000,
+      response = null,
+    } = notification
 
-    setTimeout(() => {
-      lodash.remove(notifications.value, notification)
-    }, notification.interval)
+    addNotification(type, title, text, interval, response)
   }
 
   /**
    * Removes a notification.
    *
-   * @param {number} notificationId - The id of the notification to remove.
+   * @param {string} notificationId - The id of the notification to remove.
    */
 
   /**
@@ -58,8 +85,8 @@ export const useNotificationStore = defineStore('notification', () => {
    * // Removes a notification
    * remove(notificationId);
    */
-  function remove(notificationId: number) {
-    lodash.remove(notifications.value, { id: notificationId })
+  function remove(notificationId: string) {
+    _.remove(notifications.value, { id: notificationId })
   }
 
   return {

@@ -1,8 +1,8 @@
 {
   "name": "nuxt-toasts",
-  "version": "0.0.1",
-  "description": "Notification manager for Nuxt",
-  "repository": "your-org/noti-nuxt",
+  "version": "0.1.0",
+  "description": "Notification manager for Nuxt.",
+  "repository": "timocuijpers/nuxt-toasts",
   "license": "MIT",
   "type": "module",
   "author": {

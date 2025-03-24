@@ -4,7 +4,7 @@ import Notification from "../../src/runtime/components/Notification.vue";
 
 const notificationStore = useNotificationStore()
 
-const notificationProps = ref({
+const notificationProps = ref<Notification>({
   type: 'info',
   title: 'Test',
   text: 'This is a test notification',
