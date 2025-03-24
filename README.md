@@ -103,7 +103,7 @@ You can create notifications using the `useNotificationStore` function:
     alert('Downloaded your file');
 
     // Remove notification
-    notificationStore.remove(notification.id);
+    notificationStore.removeNotification(notification.id);
   }
 
   const downloadFile = async () => {

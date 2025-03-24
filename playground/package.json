@@ -9,7 +9,9 @@
   },
   "dependencies": {
     "@pinia/nuxt": "^0.10.1",
+    "lodash": "^4.17.21",
     "nuxt": "^3.16.1",
+    "nuxt-toasts": "file:../",
     "pinia": "^3.0.1",
     "vuetify": "^3.7.18",
     "vuetify-nuxt-module": "^0.16.1"

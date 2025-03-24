@@ -1,6 +1,6 @@
 {
   "name": "nuxt-toasts",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "description": "Notification manager for Nuxt.",
   "repository": "timocuijpers/nuxt-toasts",
   "license": "MIT",
@@ -16,10 +16,13 @@
       "require": "./dist/module.cjs"
     }
   },
-  "main": "./dist/module.cjs",
+  "main": "./dist/module.mjs",
   "types": "./dist/types.d.ts",
   "files": [
-    "dist"
+    "dist",
+    "CHANGELOG.md",
+    "LICENSE",
+    "README.md"
   ],
   "scripts": {
     "prepack": "nuxt-module-build build",
@@ -33,26 +36,40 @@
     "test:types": "vue-tsc --noEmit && cd playground && vue-tsc --noEmit"
   },
   "dependencies": {
-    "@nuxt/kit": "^3.16.1"
+    "@nuxt/kit": "^3.16.1",
+    "@pinia/nuxt": "^0.10.1",
+    "@types/lodash": "^4.17.16",
+    "lodash": "^4.17.21",
+    "nuxt": "^3.16.1",
+    "pinia": "^3.0.1",
+    "nuxt-lodash": "^2.5.3",
+    "vuetify-nuxt-module": "^0.16.1"
   },
   "devDependencies": {
     "@nuxt/devtools": "^2.3.1",
+    "@nuxt/eslint": "^1.2.0",
     "@nuxt/eslint-config": "^1.2.0",
     "@nuxt/module-builder": "^0.8.4",
     "@nuxt/schema": "^3.16.1",
     "@nuxt/test-utils": "^3.17.2",
-    "@pinia/nuxt": "^0.10.1",
-    "@types/lodash": "^4.17.16",
+    "@stylistic/eslint-plugin": "^3.1.0",
+    "@stylistic/eslint-plugin-js": "^3.1.0",
+    "@stylistic/eslint-plugin-ts": "^4.2.0",
     "@types/node": "latest",
     "changelogen": "^0.6.1",
     "eslint": "^9.22.0",
-    "lodash": "^4.17.21",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-prettier": "^5.2.3",
+    "eslint-plugin-prettier-vue": "^5.0.0",
+    "eslint-plugin-sort-keys-fix": "^1.1.2",
+    "eslint-plugin-vue": "^9.33.0",
+    "globals": "^16.0.0",
     "luxon": "^3.5.0",
-    "nuxt": "^3.16.1",
-    "pinia": "^3.0.1",
+    "prettier": "^3.2.5",
+    "prettier-vue": "^1.1.2",
     "typescript": "~5.8.2",
+    "typescript-eslint": "^8.26.1",
     "vitest": "^3.0.9",
-    "vue-tsc": "^2.2.8",
-    "vuetify-nuxt-module": "^0.16.1"
+    "vue-tsc": "^2.2.8"
   }
 }

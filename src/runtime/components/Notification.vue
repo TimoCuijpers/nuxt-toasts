@@ -1,3 +1,17 @@
+<script setup>
+import { useNotificationStore } from "../composables/useNotificationStore";
+
+const notificationStore = useNotificationStore();
+
+const clickHandler = (id, callback) => {
+  if (callback) {
+    return callback();
+  }
+
+  notificationStore.removeNotification(id);
+};
+</script>
+
 <template>
   <v-sheet
     class="bg-transparent mt-8 mr-10 d-flex flex-column align-end"
@@ -9,7 +23,6 @@
       <v-alert
         v-for="notification in notificationStore.notifications"
         :key="notification.id"
-        v-model="notification.show"
         class="mt-2 flex-grow-0 rounded-lg cursor-pointer"
         density="compact"
         max-width="400px"
@@ -22,17 +35,3 @@
     </v-scroll-y-reverse-transition>
   </v-sheet>
 </template>
-
-<script setup>
-import { useNotificationStore } from '../composables/useNotificationStore.ts'
-
-const notificationStore = useNotificationStore()
-
-const clickHandler = (id, callback) => {
-  if (callback) {
-    return callback()
-  }
-
-  notificationStore.remove(id)
-}
-</script>
