@@ -40,9 +40,10 @@
     "@pinia/nuxt": "^0.10.1",
     "@types/lodash": "^4.17.16",
     "lodash": "^4.17.21",
+    "lodash-es": "^4.17.21",
     "nuxt": "^3.16.1",
-    "pinia": "^3.0.1",
     "nuxt-lodash": "^2.5.3",
+    "pinia": "^3.0.1",
     "vuetify-nuxt-module": "^0.16.1"
   },
   "devDependencies": {
