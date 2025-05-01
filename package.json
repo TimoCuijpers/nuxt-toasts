@@ -39,7 +39,6 @@
     "@nuxt/kit": "^3.16.1",
     "@pinia/nuxt": "^0.10.1",
     "@types/lodash": "^4.17.16",
-    "lodash": "^4.17.21",
     "lodash-es": "^4.17.21",
     "nuxt": "^3.16.1",
     "nuxt-lodash": "^2.5.3",
