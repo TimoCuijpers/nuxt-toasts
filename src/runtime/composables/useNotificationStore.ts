@@ -2,7 +2,7 @@ import { createPinia, defineStore } from "pinia";
 import { ref } from "vue";
 
 import type { Notification } from "../types";
-import _ from "../packages/lodash.js";
+import _ from "lodash";
 
 const pinia = createPinia();
 
